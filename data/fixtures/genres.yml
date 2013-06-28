@@ -1,0 +1,29 @@
+# Source: http://www.imdb.com/genre
+
+Genre:
+  action:       { name: Action }
+  adventure:    { name: Adventure }
+  animation:    { name: Animation }
+  biography:    { name: Biography }
+  comedy:       { name: Comedy }
+  crime:        { name: Crime }
+  documentary:  { name: Documentary }
+  drama:        { name: Drama }
+  family:       { name: Family  }
+  fantasy:      { name: Fantasy }
+  film:         { name: Film-Noir }
+  game:         { name: Game-Show }
+  history:      { name: History }
+  horror:       { name: Horror }
+  music:        { name: Music }
+  musical:      { name: Musical }
+  mystery:      { name: Mystery }
+  news:         { name: News }
+  reality:      { name: Reality-TV }
+  romance:      { name: Romance }
+  sci:          { name: Sci-Fi }
+  sport:        { name: Sport }
+  talk:         { name: Talk-Show }
+  thriller:     { name: Thriller }
+  war:          { name: War }
+  western:      { name: Western }

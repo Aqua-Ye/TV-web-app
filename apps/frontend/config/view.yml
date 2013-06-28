@@ -6,15 +6,15 @@ default:
     content-type: text/html
 
   metas:
-    #title:        symfony project
-    #description:  symfony project
-    #keywords:     symfony, project
+    #title:        TV web app
+    #description:  An awesome TV Shows web app
+    #keywords:     tv show
     #language:     en
     #robots:       index, follow
 
   stylesheets:    [main.css]
 
-  javascripts:    []
+  javascripts:    [vendor/modernizr-2.6.2.min.js, vendor/jquery-1.9.1.min.js, vendor/backbone-min.js, main.js]
 
   has_layout:     true
   layout:         layout

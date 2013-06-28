@@ -1,0 +1,28 @@
+propel:
+  person:
+    id:           ~
+    fname:        { type: varchar(255), required: true }
+    lname:        { type: varchar(255), required: true }
+
+  genre:
+    id:           ~
+    name:         { type: varchar(255), required: true, index: unique }
+ 
+  show:
+    id:           ~
+    name:         { type: varchar(255), required: true }
+    creators:     { type: varchar(255) }
+    cast:         { type: varchar(255) }
+    genre_id:     { type: integer, foreignTable: genre, foreignReference: id, required: true }
+    image:        { type: varchar(255) }
+    storyline:    { type: longvarchar, required: true }
+    created_at:   ~
+    updated_at:   ~
+ 
+  episode:
+    id:           ~
+    show:         { type: integer, foreignTable: show, foreignReference: id, required: true }
+    name:         { type: varchar(255)}
+    number:       { type: integer }
+    season:       { type: integer }
+    year:         { type: integer }
