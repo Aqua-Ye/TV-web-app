@@ -1,3 +1,8 @@
+<?php slot(
+  'title',
+  sprintf('%s', $Show->getName()))
+?>
+
 <table>
   <tbody>
     <tr>

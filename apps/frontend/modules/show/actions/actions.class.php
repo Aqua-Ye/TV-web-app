@@ -20,6 +20,11 @@ class showActions extends sfActions
     $this->forward404Unless($this->Show);
   }
 
+  public function executeLast(sfWebRequest $request)
+  {
+    $this->Shows = ShowQuery::create()->find();
+  }
+
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new ShowForm();

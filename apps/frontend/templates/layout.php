@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>TV Shows</title>
+  <title><?php include_slot('title', 'TV Shows') ?></title>
   <meta name="description" content="Fabriquant et importateur de lunettes solaires de qualité">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
