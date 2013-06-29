@@ -45,6 +45,9 @@
           <p><%= storyline %></p>
         </blockquote>
       <% } %>
+      <% if (cast) { %>
+        <p><strong>Actors:</strong> <%= cast %></p>
+      <% } %>
     </div>
   </div>
 </script>
