@@ -168,17 +168,27 @@ $(document).ready(function() {
     list:function () {
       this.showList = new ShowCollection();
       this.showListView = new ShowListView({model:this.showList});
-      this.showList.fetch();
-      $('#shows').html(this.showListView.render().el);
+      var self = this;
+      this.showList.fetch({success:function () {
+        self.showListView = new ShowListView({model:self.showList});
+        $('#shows').html(self.showListView.render().el);
+        if (self.requestedId) self.editDetails(self.requestedId);
+      }});
     },
 
     editDetails:function (id) {
-      this.show = this.showList.get(id);
-      if (app.showView) app.showView.close();
-      this.showView = new ShowView({model:this.show});
-      $('#show').html(this.showView.render().el);
-      $('#showLabel').text('Edit Show');
-      $('#show').modal('show');
+      if (this.showList) {
+        this.requestedId = null;
+        this.show = this.showList.get(id);
+        if (app.showView) app.showView.close();
+        this.showView = new ShowView({model:this.show});
+        $('#show').html(this.showView.render().el);
+        $('#showLabel').text('Edit Show');
+        $('#show').modal('show');
+      } else {
+        this.requestedId = id;
+        this.list();
+      }
     }
 
   });
