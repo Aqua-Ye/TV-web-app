@@ -12,7 +12,7 @@ all:
     class: sfPropelDatabase
     param:
       classname: PropelPDO
-      dsn: 'mysql:host=localhost;port=8889;dbname=tvshows'
+      dsn: 'mysql:host=localhost:8889;port=8889;dbname=tvshows'
       username: root
       password: root
       encoding: utf8

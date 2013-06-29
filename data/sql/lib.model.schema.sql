@@ -55,5 +55,26 @@ CREATE TABLE `show`
 		REFERENCES `genre` (`id`)
 ) ENGINE=InnoDB;
 
+-- ---------------------------------------------------------------------
+-- episode
+-- ---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `episode`;
+
+CREATE TABLE `episode`
+(
+	`id` INTEGER NOT NULL AUTO_INCREMENT,
+	`show_id` INTEGER NOT NULL,
+	`name` VARCHAR(255),
+	`number` INTEGER,
+	`season` INTEGER,
+	`year` INTEGER,
+	PRIMARY KEY (`id`),
+	INDEX `episode_FI_1` (`show_id`),
+	CONSTRAINT `episode_FK_1`
+		FOREIGN KEY (`show_id`)
+		REFERENCES `show` (`id`)
+) ENGINE=InnoDB;
+
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;

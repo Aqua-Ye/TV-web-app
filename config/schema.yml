@@ -19,10 +19,10 @@ propel:
     created_at:   ~
     updated_at:   ~
 
-  # episode:
-  #   id:           ~
-  #   show:         { type: integer, foreignTable: show, foreignReference: id, required: true }
-  #   name:         { type: varchar(255)}
-  #   number:       { type: integer }
-  #   season:       { type: integer }
-  #   year:         { type: integer }
+  episode:
+    id:           ~
+    show_id:      { type: integer, foreignTable: show, foreignReference: id, required: true }
+    name:         { type: varchar(255)}
+    number:       { type: integer }
+    season:       { type: integer }
+    year:         { type: integer }

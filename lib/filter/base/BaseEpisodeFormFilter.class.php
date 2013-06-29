@@ -12,17 +12,19 @@ abstract class BaseEpisodeFormFilter extends BaseFormFilterPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'name'   => new sfWidgetFormFilterInput(),
-      'number' => new sfWidgetFormFilterInput(),
-      'season' => new sfWidgetFormFilterInput(),
-      'year'   => new sfWidgetFormFilterInput(),
+      'show_id' => new sfWidgetFormPropelChoice(array('model' => 'Show', 'add_empty' => true)),
+      'name'    => new sfWidgetFormFilterInput(),
+      'number'  => new sfWidgetFormFilterInput(),
+      'season'  => new sfWidgetFormFilterInput(),
+      'year'    => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'name'   => new sfValidatorPass(array('required' => false)),
-      'number' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'season' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'year'   => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'show_id' => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Show', 'column' => 'id')),
+      'name'    => new sfValidatorPass(array('required' => false)),
+      'number'  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'season'  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'year'    => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('episode_filters[%s]');
@@ -40,11 +42,12 @@ abstract class BaseEpisodeFormFilter extends BaseFormFilterPropel
   public function getFields()
   {
     return array(
-      'id'     => 'Number',
-      'name'   => 'Text',
-      'number' => 'Number',
-      'season' => 'Number',
-      'year'   => 'Number',
+      'id'      => 'Number',
+      'show_id' => 'ForeignKey',
+      'name'    => 'Text',
+      'number'  => 'Number',
+      'season'  => 'Number',
+      'year'    => 'Number',
     );
   }
 }
