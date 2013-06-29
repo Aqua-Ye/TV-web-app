@@ -207,4 +207,17 @@ $(document).ready(function() {
   var app = new AppRouter();
   Backbone.history.start();
 
+  $('.ac_persons').autocomplete({
+    serviceUrl: '/api/person',
+    delimiter: ', ',
+    transformResult: function(response) {
+      var persons = JSON.parse(response).persons;
+      var suggestions = [];
+      for (var p in persons) {
+        suggestions.push(persons[p].fname + ' ' + persons[p].lname);
+      }
+      return {suggestions:suggestions};
+    },
+  })
+
 });

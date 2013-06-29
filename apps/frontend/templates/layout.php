@@ -77,6 +77,8 @@
   <script src="/js/vendor/underscore-min.js"></script>
   <script src="/js/vendor/backbone-min.js"></script>
 
+  <script src="/js/vendor/jquery.autocomplete.min.js"></script>
+
   <!-- Boilerplate -->
   <script src="/js/plugins.js"></script>
 

@@ -65,13 +65,13 @@
     <div class="control-group">
       <label class="control-label" for="creators">Creators</label>
       <div class="controls">
-        <input type="text" name="creators" id="creators" placeholder="Creators" value="<%= creators %>">
+        <input type="text" name="creators" id="creators" class="ac_persons" placeholder="Creators" value="<%= creators %>">
       </div>
     </div>
     <div class="control-group">
       <label class="control-label" for="creators">Cast</label>
       <div class="controls">
-        <input type="text" name="cast" id="cast" placeholder="Cast" value="<%= cast %>">
+        <input type="text" name="cast" id="cast" class="ac_persons" placeholder="Cast" value="<%= cast %>">
       </div>
     </div>
     <div class="control-group">

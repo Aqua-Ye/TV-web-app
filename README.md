@@ -29,6 +29,7 @@ URIs
 
 - list all shows
 - add a new show
+	- very basic auto-completion on names
 - edit a show
 - delete a show (no confirmation)
 
@@ -58,7 +59,6 @@ TODO
 
 - Single show page
 - Rights and access management
-- Autocomplete persons (creators, cast)
 - Image upload
 - PushState
 - Search
