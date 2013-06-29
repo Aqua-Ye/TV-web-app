@@ -14,9 +14,9 @@ class apiActions extends sfActions
   {
     $this->model = $request->getParameter('model');
     if ($this->model === 'person') {
-      $this->objects = PersonQuery::create()->find();      
+      $this->objects = PersonQuery::create()->find();
     } else if ($this->model === 'show') {
-      $this->objects = ShowQuery::create()->find();      
+      $this->objects = ShowQuery::create()->find();
     }
   }
 
@@ -28,6 +28,26 @@ class apiActions extends sfActions
     $person->setFname($this->person->fname);
     $person->setLname($this->person->lname);
     $person->save();
+    return $this;
+  }
+
+  public function executeGet(sfWebRequest $request)
+  {
+    return $this;
+  }
+
+  public function executeUpdate(sfWebRequest $request)
+  {
+    return $this;
+  }
+
+  public function executeDelete(sfWebRequest $request)
+  {
+    $this->model = $request->getParameter('model');
+    $Person = PersonQuery::create()->findPk($request->getParameter('id'));
+    $this->forward404Unless($Person, sprintf('Object Person does not exist (%s).', $request->getParameter('id')));
+    $Person->delete();
+    $this->redirect('person/index');
     return $this;
   }
 

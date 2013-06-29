@@ -17,29 +17,29 @@ api_create:
   requirements:
     sf_method: [POST]
 
-# ws_get:
-#   url: /rest/:model/:id.:sf_format
-#   class: sfRequestRoute
-#   param: { module: webservice, action: get, sf_format: xml, column: id }
-#   requirements:
-#     id: \d+
-#     sf_method: [GET]
+api_get:
+  url: /api/:model/:id
+  class: sfRequestRoute
+  param: { module: api, action: get, sf_format: json, column: id }
+  requirements:
+    id: \d+
+    sf_method: [GET]
 
-# ws_update:
-#   url: /rest/:model/:id.:sf_format
-#   class: sfRequestRoute
-#   param: { module: webservice, action: update, sf_format: xml, column: id }
-#   requirements:
-#     id: \d+
-#     sf_method: [PUT]
+api_update:
+  url: /api/:model/:id
+  class: sfRequestRoute
+  param: { module: api, action: update, sf_format: json, column: id }
+  requirements:
+    id: \d+
+    sf_method: [PUT]
 
-# ws_delete:
-#   url: /rest/:model/:id.:sf_format
-#   class: sfRequestRoute
-#   param: { module: webservice, action: delete, sf_format: xml, column: id }
-#   requirements:
-#     id: \d+
-#     sf_method: [DELETE]
+api_delete:
+  url: /api/:model/:id
+  class: sfRequestRoute
+  param: { module: api, action: delete, sf_format: json, column: id }
+  requirements:
+    id: \d+
+    sf_method: [DELETE]
 
 # default rules
 homepage:

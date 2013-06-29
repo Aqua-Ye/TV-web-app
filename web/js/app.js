@@ -49,6 +49,10 @@ window.PersonListItemView = Backbone.View.extend({
       this.model.bind("destroy", this.close, this);
     },
 
+    events:{
+      "click .delete":"deletePerson"
+    },
+
     render:function (eventName) {
         $(this.el).html(this.template(this.model.toJSON()));
         return this;
@@ -57,8 +61,18 @@ window.PersonListItemView = Backbone.View.extend({
     close:function () {
         $(this.el).unbind();
         $(this.el).remove();
-    }
+    },
 
+    deletePerson:function () {
+        this.model.destroy({
+            success:function () {
+                alert('Person deleted successfully');
+                window.history.back();
+            }
+        });
+        return false;
+    },
+ 
 });
 
 window.PersonView = Backbone.View.extend({
@@ -77,7 +91,6 @@ window.PersonView = Backbone.View.extend({
     events:{
         "change input":"change",
         "click .save":"savePerson",
-        "click .delete":"deletePerson"
     },
 
     savePerson:function () {
@@ -90,16 +103,6 @@ window.PersonView = Backbone.View.extend({
         } else {
             this.model.save();
         }
-        return false;
-    },
- 
-    deletePerson:function () {
-        this.model.destroy({
-            success:function () {
-                alert('Person deleted successfully');
-                window.history.back();
-            }
-        });
         return false;
     },
  

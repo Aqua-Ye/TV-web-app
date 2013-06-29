@@ -9,7 +9,7 @@
 </script>
 
 <script type="text/template" id="person-list-item">
-  <a href='/person/<%= id %>'><%= fname %> <%= lname %></a> <i class="icon-pencil"></i>
+  <a href='/person/<%= id %>'><%= fname %> <%= lname %></a> <i class="icon-pencil edit"></i> <i class="icon-trash delete"></i>
 </script>
 
 <script type="text/template" id="person-details">
@@ -19,6 +19,5 @@
         <label>Last Name:</label>
         <input type="text" id="lname" name="lname" value="<%= lname %>" required/>
         <button class="save btn btn-primary">Save</button>
-        <button class="delete btn btn-danger">Delete</button>
     </div>
 </script>
