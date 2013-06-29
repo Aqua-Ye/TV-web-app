@@ -20,13 +20,27 @@
 </script>
 
 <script type="text/template" id="show-list-item">
- <div id="s<%= id %>">
+ <div id="s<%= id %>" class="row-fluid">
     <div class="span2">
-      <img src="/uploads/images/<%= image %>" class="img-polaroid"></img>
+      <% if (image) { %>
+        <img src="/uploads/images/<%= image %>" class="img-polaroid"></img>
+      <% } else { %>
+        <img src="http://placehold.it/214x317" class="img-polaroid"></img>
+      <% } %>
     </div>
     <div class="span10">
-      <a href='/show/show/id/<%= id %>'><h1><%= name %></h1></a>
-      <p><%= storyline %></p>
+      <div class="page-header">
+        <a href='/show/show/id/<%= id %>'><h2><%= name %></h2></a>
+      </div>
+      <% if (creators) { %>
+        <p><strong>Created by:</strong> <%= creators %></p>
+      <% } %>
+      <% if (storyline) { %>
+        <h5>StoryLine:</h5>
+        <blockquote>
+          <p><%= storyline %></p>
+        </blockquote>
+      <% } %>
       <a class="edit btn" href="#edit=<%= id %>">Edit</a>
       <a class="delete btn btn-danger">Delete</a>
     </div>
@@ -63,7 +77,11 @@
       <div class="controls">
         <select id="genre_id" required>
         <?php foreach ($Genres as $Genre): ?>
-          <option value="<?php echo $Genre->getId() ?>"><?php echo $Genre->getName() ?></option>
+          <% if (genre_id == <?php echo $Genre->getId() ?>) { %>
+            <option value="<?php echo $Genre->getId() ?>" selected><?php echo $Genre->getName() ?></option>
+          <% } else { %>
+            <option value="<?php echo $Genre->getId() ?>"><?php echo $Genre->getName() ?></option>
+          <% } %>
         <?php endforeach; ?>
         </select>
       </div>

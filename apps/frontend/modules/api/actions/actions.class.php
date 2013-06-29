@@ -72,10 +72,16 @@ class apiActions extends sfActions
   public function executeDelete(sfWebRequest $request)
   {
     $this->model = $request->getParameter('model');
-    $person = PersonQuery::create()->findPk($request->getParameter('id'));
-    $this->forward404Unless($person, sprintf('Object Person does not exist (%s).', $request->getParameter('id')));
-    $person->delete();
-    $this->redirect('person/index');
+    if ($this->model === 'person') {
+      $person = PersonQuery::create()->findPk($request->getParameter('id'));
+      $this->forward404Unless($person, sprintf('Object Person does not exist (%s).', $request->getParameter('id')));
+      $person->delete();
+      $this->redirect('person/index');
+    } else if ($this->model === 'show') {
+      $show = ShowQuery::create()->findPk($request->getParameter('id'));
+      $this->forward404Unless($show, sprintf('Object Show does not exist (%s).', $request->getParameter('id')));
+      $show->delete();
+    }
     return $this;
   }
 
