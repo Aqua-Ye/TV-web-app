@@ -1,5 +1,20 @@
 $(document).ready(function() {
 
+  function init_autocomplete() {
+    $('.ac_persons').autocomplete('dispose').autocomplete({
+      serviceUrl: '/api/person',
+      delimiter: ', ',
+      transformResult: function(response) {
+        var persons = JSON.parse(response).persons;
+        var suggestions = [];
+        for (var p in persons) {
+          suggestions.push(persons[p].fname + ' ' + persons[p].lname);
+        }
+        return {suggestions:suggestions};
+      },
+    })
+  }
+
   window.Show = Backbone.Model.extend({
     urlRoot: "/api/show",
     defaults: {
@@ -150,6 +165,7 @@ $(document).ready(function() {
       $('#newShowLabel').text('New Show');
       $('#show').modal('show');
       app.navigate('new', false);
+      init_autocomplete();
       return true;
     },
 
@@ -185,6 +201,7 @@ $(document).ready(function() {
       $('#show').html(app.showView.render().el);
       $('#show').modal('show');
       this.list();
+      init_autocomplete();
     },
 
     editDetails:function (id) {
@@ -196,6 +213,7 @@ $(document).ready(function() {
         $('#show').html(this.showView.render().el);
         $('#showLabel').text('Edit Show');
         $('#show').modal('show');
+        init_autocomplete();
       } else {
         this.requestedId = id;
         this.list();
@@ -206,18 +224,5 @@ $(document).ready(function() {
 
   var app = new AppRouter();
   Backbone.history.start();
-
-  $('.ac_persons').autocomplete({
-    serviceUrl: '/api/person',
-    delimiter: ', ',
-    transformResult: function(response) {
-      var persons = JSON.parse(response).persons;
-      var suggestions = [];
-      for (var p in persons) {
-        suggestions.push(persons[p].fname + ' ' + persons[p].lname);
-      }
-      return {suggestions:suggestions};
-    },
-  })
 
 });
