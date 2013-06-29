@@ -1,4 +1,4 @@
-<h1>Shows List</h1>
+<h1>Shows</h1>
 
 <table>
   <thead>
