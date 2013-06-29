@@ -50,7 +50,7 @@
           </ul>
           <form class="navbar-form pull-right form-search">
             <div class="input-append">
-              <input type="text" class="span2 search-query" placeholder="Search">
+              <input type="text" class="span2 search-query" placeholder="Search" disabled>
               <button type="submit" class="btn"><i class="icon-search"></i></button>
             </div>
           </form>
