@@ -1,0 +1,21 @@
+Show:
+  GameOfThrones:
+    name: Game Of Thrones
+    creators: David Benioff, D.B. Weiss
+    cast: Peter Dinklage, Lena Headey, Maisie Williams
+    genre_id: fantasy
+    image: GoT.jpg
+    storyline: Seven noble families fight for control of the mythical land of Westeros.
+  Dexter:
+    name: Dexter
+    cast: Michael C. Hall, Jennifer Carpenter, David Zayas
+    genre_id: crime
+    image: DX.jpg
+    storyline: A likeable Miami police forensics expert moonlights as a serial killer of criminals who he believes have escaped justice.
+  BreakingBad:
+    name: Breaking Bad
+    creators: Vince Gilligan
+    cast: Bryan Cranston, Anna Gunn, Aaron Paul
+    genre_id: crime
+    image: BB.jpg
+    storyline: A high school chemistry teacher turns to a life of crime in order to secure his family's financial future.
