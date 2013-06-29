@@ -130,7 +130,7 @@ $(document).ready(function() {
     initialize: function() {
       this.render();
       $('#show').on('hide', function () {
-        window.location.hash = "";
+        app.navigate('', false);
       })
     },
 
