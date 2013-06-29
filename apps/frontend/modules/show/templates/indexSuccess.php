@@ -16,7 +16,7 @@
 </div>
 
 <script type="text/template" id="header">
-  <a href="#show" role="button" class="new btn btn-success" data-toggle="modal">New</a>
+  <a href="#new" role="button" class="new btn btn-success" data-toggle="modal">New</a>
 </script>
 
 <script type="text/template" id="show-list-item">

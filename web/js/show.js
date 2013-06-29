@@ -148,6 +148,8 @@ $(document).ready(function() {
       app.showView = new ShowView({model:new Show()});
       $('#show').html(app.showView.render().el);
       $('#newShowLabel').text('New Show');
+      $('#show').modal('show');
+      app.navigate('new', false);
       return true;
     },
 
@@ -158,6 +160,7 @@ $(document).ready(function() {
 
     routes: {
       "" : "list",
+      "new" : "newShow",
       "edit=:id" : "editDetails",
     },
 
@@ -174,6 +177,14 @@ $(document).ready(function() {
         $('#shows').html(self.showListView.render().el);
         if (self.requestedId) self.editDetails(self.requestedId);
       }});
+    },
+
+    newShow:function (id) {
+      if (app.showView) app.showView.close();
+      app.showView = new ShowView({model: new Show()});
+      $('#show').html(app.showView.render().el);
+      $('#show').modal('show');
+      this.list();
     },
 
     editDetails:function (id) {
