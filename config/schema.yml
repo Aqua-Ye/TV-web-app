@@ -7,7 +7,7 @@ propel:
   genre:
     id:           ~
     name:         { type: varchar(255), required: true, index: unique }
- 
+
   show:
     id:           ~
     name:         { type: varchar(255), required: true }
@@ -18,7 +18,7 @@ propel:
     storyline:    { type: longvarchar, required: true }
     created_at:   ~
     updated_at:   ~
- 
+
   episode:
     id:           ~
     show:         { type: integer, foreignTable: show, foreignReference: id, required: true }

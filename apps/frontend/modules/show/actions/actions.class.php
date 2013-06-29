@@ -12,6 +12,7 @@ class showActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->Shows = ShowQuery::create()->find();
+    $this->Genres = GenreQuery::create()->find();
   }
 
   public function executeShow(sfWebRequest $request)
@@ -22,7 +23,9 @@ class showActions extends sfActions
 
   public function executeLast(sfWebRequest $request)
   {
-    $this->Shows = ShowQuery::create()->find();
+    $criteria = new Criteria();
+    $criteria->setLimit(10);
+    $this->Shows = ShowPeer::doSelect($criteria);
   }
 
   public function executeNew(sfWebRequest $request)

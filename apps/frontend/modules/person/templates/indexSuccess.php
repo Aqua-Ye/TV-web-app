@@ -1,9 +1,9 @@
 <div class="navbar">
   <div class="navbar-inner">
     <a class="brand">Persons</a>
-    <ul class="nav pull-right">
-      <li class="active"><span id="add"></span></li>
-    </ul>
+    <div class="pull-right">
+      <span id="add"></span>
+    </div>
   </div>
 </div>
 
@@ -48,3 +48,5 @@
     </div>
   </form>
 </script>
+
+<script src="/js/person.js"></script>

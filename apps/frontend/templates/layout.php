@@ -18,8 +18,13 @@
   <!-- Responsive Bootstrap: insert after main CSS -->
   <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.min.css">
 
+  <!-- Modernizr -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
   <script>Modernizr || document.write('<script src="/js/vendor/modernizr-2.6.2.min.js"><\/script>')</script>
+
+  <!-- jQuery -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 </head>
 <body>
   <!--[if lt IE 7]>
@@ -64,10 +69,6 @@
       <p class="credit">Copyright © 2013 <a href="https://www.linkedin.com/in/yefrederic" target="_blank">Frederic Ye</a>.</p>
     </div>
   </footer>
-
-  <!-- jQuery -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 
   <!-- Bootstrap -->
   <script src="/bootstrap/js/bootstrap.min.js"></script>
