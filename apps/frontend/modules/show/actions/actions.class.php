@@ -23,9 +23,8 @@ class showActions extends sfActions
 
   public function executeLast(sfWebRequest $request)
   {
-    $criteria = new Criteria();
-    $criteria->setLimit(10);
-    $this->Shows = ShowPeer::doSelect($criteria);
+    $max = 10;
+    $this->Shows = ShowQuery::create()->limit($max)->orderByUpdatedAt('desc')->find();
   }
 
   public function executeNew(sfWebRequest $request)

@@ -22,3 +22,8 @@ body {
   margin-bottom: 0;
   color: #777;
 }
+
+#last .row-fluid {
+  margin-bottom: 5px;
+  background-color: #eee;
+}
