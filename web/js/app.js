@@ -143,7 +143,7 @@ var AppRouter = Backbone.Router.extend({
 
   routes:{
     "":"list",
-    "persons/:id":"personDetails"
+    "id=:id":"personDetails"
   },
 
   initialize:function () {

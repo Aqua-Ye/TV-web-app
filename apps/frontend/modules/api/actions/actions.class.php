@@ -38,15 +38,22 @@ class apiActions extends sfActions
 
   public function executeUpdate(sfWebRequest $request)
   {
+    $this->model = $request->getParameter('model');
+    $this->person = json_decode($request->getContent());
+    $person = PersonQuery::create()->findPk($request->getParameter('id'));
+    $this->forward404Unless($person, sprintf('Object Person does not exist (%s).', $request->getParameter('id')));
+    $person->setFname($this->person->fname);
+    $person->setLname($this->person->lname);
+    $person->save();
     return $this;
   }
 
   public function executeDelete(sfWebRequest $request)
   {
     $this->model = $request->getParameter('model');
-    $Person = PersonQuery::create()->findPk($request->getParameter('id'));
-    $this->forward404Unless($Person, sprintf('Object Person does not exist (%s).', $request->getParameter('id')));
-    $Person->delete();
+    $person = PersonQuery::create()->findPk($request->getParameter('id'));
+    $this->forward404Unless($person, sprintf('Object Person does not exist (%s).', $request->getParameter('id')));
+    $person->delete();
     $this->redirect('person/index');
     return $this;
   }
