@@ -1,0 +1,7 @@
+Person:
+  PeterDinklage:
+    fname: Peter
+    lname: Dinklage
+  LenaHadley:
+    fname: Lena
+    lname: Hadley
