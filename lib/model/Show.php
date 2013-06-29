@@ -19,4 +19,8 @@
  */
 class Show extends BaseShow {
 
+  public function __toString() {
+    return $this->getName();
+  }
+
 } // Show

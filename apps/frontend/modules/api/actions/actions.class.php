@@ -14,9 +14,9 @@ class apiActions extends sfActions
   {
     $this->model = $request->getParameter('model');
     if ($this->model === 'person') {
-      $this->objects = PersonQuery::create()->find();
+      $this->objects = PersonQuery::create()->orderByLname()->find();
     } else if ($this->model === 'show') {
-      $this->objects = ShowQuery::create()->find();
+      $this->objects = ShowQuery::create()->orderByName()->find();
     }
   }
 

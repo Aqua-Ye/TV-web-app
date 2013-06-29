@@ -11,7 +11,7 @@ class showActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->Shows = ShowQuery::create()->find();
+    $this->Shows = ShowQuery::create()->orderByName()->find();
     $this->Genres = GenreQuery::create()->find();
   }
 
