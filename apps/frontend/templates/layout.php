@@ -42,7 +42,7 @@
         <a class="brand" href="/">TV Shows</a>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li><a href="/">Latest Shows</a></li>
+            <li><a href="/show/last">Latest Shows</a></li>
             <li><a href="/show">All Shows</a></li>
             <li><a href="/genre">All Genres</a></li>
             <li><a href="/person">All Persons</a></li>
