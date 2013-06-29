@@ -9,7 +9,7 @@ Genre:
   crime:        { name: Crime }
   documentary:  { name: Documentary }
   drama:        { name: Drama }
-  family:       { name: Family  }
+  family:       { name: Family }
   fantasy:      { name: Fantasy }
   film:         { name: Film-Noir }
   game:         { name: Game-Show }
