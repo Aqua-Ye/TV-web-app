@@ -13,8 +13,13 @@ class apiActions extends sfActions
   public function executeList(sfWebRequest $request)
   {
     $this->model = $request->getParameter('model');
+    $this->query = $request->getParameter('query');
     if ($this->model === 'person') {
-      $this->objects = PersonQuery::create()->orderByLname()->find();
+      if ($this->query) {
+        $this->objects = PersonQuery::create()->filterByFname('%'.$this->query.'%')->_or()->filterByLname('%'.$this->query.'%')->orderByLname()->find();
+      } else {
+        $this->objects = PersonQuery::create()->orderByLname()->find();
+      }
     } else if ($this->model === 'show') {
       $this->objects = ShowQuery::create()->orderByName()->find();
     }
