@@ -37,7 +37,10 @@
         <a class="brand" href="/">TV Shows</a>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/">Latest Shows</a></li>
+            <li><a href="/show">All Shows</a></li>
+            <li><a href="/genre">All Genres</a></li>
+            <li><a href="/person">All Persons</a></li>
             <li><a href="#about" data-toggle="modal">About</a></li>
           </ul>
           <form class="navbar-form pull-right form-search">
@@ -52,9 +55,7 @@
   </div>
 
   <div id="container" class="container">
-
     <?php echo $sf_content ?>
-
   </div>
 
   <!-- Footer -->

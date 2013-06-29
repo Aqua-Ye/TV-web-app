@@ -72,7 +72,7 @@ window.PersonListItemView = Backbone.View.extend({
     });
     return false;
   },
-  
+
 });
 
 window.PersonView = Backbone.View.extend({
@@ -105,7 +105,7 @@ window.PersonView = Backbone.View.extend({
     }
     return false;
   },
-  
+
   close:function () {
     $(this.el).unbind();
     $(this.el).empty();
