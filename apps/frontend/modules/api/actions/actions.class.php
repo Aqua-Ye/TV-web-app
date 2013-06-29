@@ -29,6 +29,7 @@ class apiActions extends sfActions
       $person->setFname($this->data->fname);
       $person->setLname($this->data->lname);
       $person->save();
+      $this->id = $person->getId();
     } else if ($this->model === 'show') {
       $show = new Show();
       $show->setName($this->data->name);
@@ -37,8 +38,8 @@ class apiActions extends sfActions
       $show->setGenre(GenrePeer::retrieveByPk($this->data->genre_id));
       $show->setStoryline($this->data->storyline);
       $show->save();
+      $this->id = $show->getId();
     }
-    return $this;
   }
 
   public function executeGet(sfWebRequest $request)
