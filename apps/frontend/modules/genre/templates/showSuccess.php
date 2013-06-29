@@ -1,5 +1,9 @@
-<h1>Genre: <?php echo $Genre->getName() ?></h1>
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand">Genre: <?php echo $Genre->getName() ?></a>
+  </div>
+</div>
 
-<hr />
+<?php include_partial('global/shows', array('Shows' => $Shows)) ?>
 
 <a href="<?php echo url_for('genre/index') ?>">All Genres</a>

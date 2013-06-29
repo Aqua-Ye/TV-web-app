@@ -11,13 +11,14 @@ class genreActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->Genres = GenreQuery::create()->find();
+    $this->Genres = GenreQuery::create()->orderByName()->find();
   }
 
   public function executeShow(sfWebRequest $request)
   {
     $this->Genre = GenrePeer::retrieveByPk($request->getParameter('id'));
     $this->forward404Unless($this->Genre);
+    $this->Shows = ShowQuery::create()->filterByGenreId($this->Genre->getId())->find();
   }
 
   public function executeNew(sfWebRequest $request)

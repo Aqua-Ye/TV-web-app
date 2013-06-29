@@ -23,7 +23,7 @@ body {
   color: #777;
 }
 
-#last .row-fluid {
+.shows .row-fluid {
   margin-bottom: 5px;
   background-color: #eee;
 }
