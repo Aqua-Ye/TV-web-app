@@ -52,3 +52,15 @@ URIs
 - add a new person
 - edit a person profile
 - delete a person (no confirmation)
+
+TODO
+----
+
+- Single show page
+- Rights and access management
+- Autocomplete persons (creators, cast)
+- Image upload
+- PushState
+- Search
+- Episodes
+- Pagination
