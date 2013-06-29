@@ -10,12 +10,12 @@ api_list:
   requirements:
     sf_method: [GET]
 
-# ws_create:
-#   url: /rest/:model.:sf_format
-#   class: sfRequestRoute
-#   param: { module: webservice, action: create, sf_format: xml }
-#   requirements:
-#     sf_method: [POST]
+api_create:
+  url: /api/:model
+  class: sfRequestRoute
+  param: { module: api, action: create, sf_format: json }
+  requirements:
+    sf_method: [POST]
 
 # ws_get:
 #   url: /rest/:model/:id.:sf_format

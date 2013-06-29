@@ -2,10 +2,10 @@
 window.Person = Backbone.Model.extend({
   urlRoot: "/api/person",
   defaults:{
-    "id":null,
-    "fname":"",
-    "lname":""
-    }
+    "id" : null,
+    "fname" : "",
+    "lname" : ""
+  }
 });
 
 window.PersonCollection = Backbone.Collection.extend({
@@ -23,6 +23,10 @@ window.PersonListView = Backbone.View.extend({
 
     initialize:function () {
       this.model.bind("reset", this.render, this);
+      var self = this;
+      this.model.bind("add", function (person) {
+        $(self.el).append(new PersonListItemView({model:person}).render().el);
+      });
     },
 
     render:function (eventName) {
@@ -40,9 +44,19 @@ window.PersonListItemView = Backbone.View.extend({
 
     template:_.template($('#person-list-item').html()),
 
+    initialize:function () {
+      this.model.bind("change", this.render, this);
+      this.model.bind("destroy", this.close, this);
+    },
+
     render:function (eventName) {
         $(this.el).html(this.template(this.model.toJSON()));
         return this;
+    },
+
+    close:function () {
+        $(this.el).unbind();
+        $(this.el).remove();
     }
 
 });
@@ -51,11 +65,74 @@ window.PersonView = Backbone.View.extend({
 
     template:_.template($('#person-details').html()),
 
+    initialize:function () {
+        this.model.bind("change", this.render, this);
+    },
+
     render:function (eventName) {
         $(this.el).html(this.template(this.model.toJSON()));
         return this;
+    },
+
+    events:{
+        "change input":"change",
+        "click .save":"savePerson",
+        "click .delete":"deletePerson"
+    },
+
+    savePerson:function () {
+        this.model.set({
+            fname:$('#fname').val(),
+            lname:$('#lname').val(),
+        });
+        if (this.model.isNew()) {
+            app.personList.create(this.model);
+        } else {
+            this.model.save();
+        }
+        return false;
+    },
+ 
+    deletePerson:function () {
+        this.model.destroy({
+            success:function () {
+                alert('Person deleted successfully');
+                window.history.back();
+            }
+        });
+        return false;
+    },
+ 
+    close:function () {
+        $(this.el).unbind();
+        $(this.el).empty();
     }
 
+});
+
+window.HeaderView = Backbone.View.extend({
+
+    template:_.template($('#header').html()),
+
+    initialize:function () {
+        this.render();
+    },
+
+    render:function (eventName) {
+        $(this.el).html(this.template());
+        return this;
+    },
+
+    events:{
+        "click .new":"newPerson"
+    },
+
+    newPerson:function (event) {
+        if (app.personView) app.personView.close();
+        app.personView = new PersonView({model:new Person()});
+        $('#person').html(app.personView.render().el);
+        return false;
+    }
 });
 
 // Router
@@ -66,17 +143,20 @@ var AppRouter = Backbone.Router.extend({
         "persons/:id":"personDetails"
     },
 
+    initialize:function () {
+        $('#add').html(new HeaderView().render().el);
+    },
+
     list:function () {
         this.personList = new PersonCollection();
         this.personListView = new PersonListView({model:this.personList});
-        var that = this;
-        this.personList.fetch({success:function() {
-          $('#persons').html(that.personListView.render().el);
-        }});
+        this.personList.fetch();
+        $('#persons').html(this.personListView.render().el);
     },
 
     personDetails:function (id) {
         this.person = this.personList.get(id);
+        if (app.personView) app.personView.close();
         this.personView = new PersonView({model:this.person});
         $('#person').html(this.personView.render().el);
     }
