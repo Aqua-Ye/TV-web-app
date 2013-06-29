@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand">Persons</a>
+    <a class="brand">All Persons</a>
     <div class="pull-right">
       <span id="add"></span>
     </div>
