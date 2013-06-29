@@ -14,6 +14,11 @@ class personActions extends sfActions
     $this->Persons = PersonQuery::create()->find();
   }
 
+  public function executeList(sfWebRequest $request)
+  {
+    $this->Persons = PersonQuery::create()->find();
+  }
+
   public function executeShow(sfWebRequest $request)
   {
     $this->Person = PersonPeer::retrieveByPk($request->getParameter('id'));

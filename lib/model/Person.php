@@ -19,4 +19,8 @@
  */
 class Person extends BasePerson {
 
+  public function __toString() {
+    return $this->getFName() + $this.getLname();
+  }
+
 } // Person

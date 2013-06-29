@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.min.css">
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-  <script>Modernizr || document.write('<script src="js/vendor/modernizr-2.6.2.min.js"><\/script>')</script>
+  <script>Modernizr || document.write('<script src="/js/vendor/modernizr-2.6.2.min.js"><\/script>')</script>
 </head>
 <body>
   <!--[if lt IE 7]>
@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <div class="container">
+  <div id="container" class="container">
 
     <?php echo $sf_content ?>
 
@@ -66,15 +66,19 @@
 
   <!-- jQuery -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 
   <!-- Bootstrap -->
   <script src="/bootstrap/js/bootstrap.min.js"></script>
 
+  <!-- Underscore + Backbone -->
+  <script src="/js/vendor/underscore-min.js"></script>
+  <script src="/js/vendor/backbone-min.js"></script>
+
   <!-- Boilerplate -->
   <script src="/js/plugins.js"></script>
 
-  <script src="/js/main.js"></script>
+  <script src="/js/app.js"></script>
 
   <!-- <script src="/js/retina.js"></script> -->
 

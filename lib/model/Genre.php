@@ -19,4 +19,8 @@
  */
 class Genre extends BaseGenre {
 
+  public function __toString() {
+    return $this->getName();
+  }
+
 } // Genre

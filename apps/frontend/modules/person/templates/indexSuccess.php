@@ -1,22 +1,17 @@
 <h1>Persons List</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Fname</th>
-      <th>Lname</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach ($Persons as $Person): ?>
-    <tr>
-      <td><a href="<?php echo url_for('person/show?id='.$Person->getId()) ?>"><?php echo $Person->getId() ?></a></td>
-      <td><?php echo $Person->getFname() ?></td>
-      <td><?php echo $Person->getLname() ?></td>
-    </tr>
-    <?php endforeach; ?>
-  </tbody>
-</table>
+<div id="persons"></div>
+<div id="person"></div>
 
-  <a href="<?php echo url_for('person/new') ?>">New</a>
+<script type="text/template" id="person-list-item">
+  <a href='/person/<%= id %>'><%= fname %> <%= lname %></a> <i class="icon-pencil"></i>
+</script>
+
+<script type="text/template" id="person-details">
+    <div>
+        <label>Id:</label>
+        <input type="text" id="wineId" name="id" value="<%= id %>" disabled />
+        <label>Name:</label>
+        <input type="text" id="name" name="name" value="<%= name %>" required/>
+    </div>
+</script>
