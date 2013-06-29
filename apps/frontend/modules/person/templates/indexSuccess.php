@@ -1,4 +1,4 @@
-<h1>Persons List</h1>
+<h1>Persons</h1>
 
 <div id="add"></div>
 <div id="persons"></div>
