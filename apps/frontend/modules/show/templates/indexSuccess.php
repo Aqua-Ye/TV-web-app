@@ -9,7 +9,7 @@
 </div>
 
 <div class="row-fluid">
-  <div id="shows"></div>
+  <div id="shows" class="shows"></div>
 </div>
 
 <div id="show" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="showLabel" aria-hidden="true">
@@ -29,6 +29,10 @@
       <% } %>
     </div>
     <div class="span10">
+      <div class="actions pull-right">
+        <a class="edit btn" href="#edit=<%= id %>">Edit</a>
+        <a class="delete btn btn-danger">Delete</a>
+      </div>
       <div class="page-header">
         <a href='/show/show/id/<%= id %>'><h2><%= name %></h2></a>
       </div>
@@ -41,8 +45,6 @@
           <p><%= storyline %></p>
         </blockquote>
       <% } %>
-      <a class="edit btn" href="#edit=<%= id %>">Edit</a>
-      <a class="delete btn btn-danger">Delete</a>
     </div>
   </div>
 </script>
