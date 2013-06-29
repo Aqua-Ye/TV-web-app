@@ -91,6 +91,7 @@ $(document).ready(function() {
     events: {
       "change input":"change",
       "click .save":"savePerson",
+      "click .cancel":"cancelPerson",
     },
 
     savePerson:function () {
@@ -103,6 +104,12 @@ $(document).ready(function() {
       } else {
         this.model.save();
       }
+      return false;
+    },
+
+    cancelPerson:function () {
+      $('#person').empty();
+      app.navigate('', false);
       return false;
     },
 
@@ -154,15 +161,24 @@ $(document).ready(function() {
     list:function () {
       this.personList = new PersonCollection();
       this.personListView = new PersonListView({model:this.personList});
-      this.personList.fetch();
-      $('#persons').html(this.personListView.render().el);
+      var self = this;
+      this.personList.fetch({success: function() {
+        self.personListView = new PersonListView({model:self.personList});
+        $('#persons').html(self.personListView.render().el);
+        if (self.requestedId) self.personDetails(self.requestedId);
+      }});
     },
 
     personDetails:function (id) {
-      this.person = this.personList.get(id);
-      if (app.personView) app.personView.close();
-      this.personView = new PersonView({model:this.person});
-      $('#person').html(this.personView.render().el);
+      if (this.personList) {
+        this.person = this.personList.get(id);
+        if (app.personView) app.personView.close();
+        this.personView = new PersonView({model:this.person});
+        $('#person').html(this.personView.render().el);
+      } else {
+        this.requestedId = id;
+        this.list();
+      }
     }
 
   });
