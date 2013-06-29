@@ -67,7 +67,6 @@ class apiActions extends sfActions
       $show->setStoryline($this->data->storyline);
       $show->save();
     }
-    return $this;
   }
 
   public function executeDelete(sfWebRequest $request)
@@ -83,7 +82,6 @@ class apiActions extends sfActions
       $this->forward404Unless($show, sprintf('Object Show does not exist (%s).', $request->getParameter('id')));
       $show->delete();
     }
-    return $this;
   }
 
 }
